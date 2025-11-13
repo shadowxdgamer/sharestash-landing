@@ -1,42 +1,491 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+:root {
+  --primary: #607AFB;
+  --accent-purple: #BE82F4;
+  --accent-blue: #3981F6;
+  --background-dark: #0F1323;
+  --card-dark: #1A1A1A;
+  --text-primary: #E0E0E0;
+  --text-secondary: #9E9E9E;
+  --success: #66BB6A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: var(--background-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  padding: 60px 20px 80px;
   text-align: center;
+  background: linear-gradient(135deg, var(--background-dark) 0%, #1a1f3a 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 30px;
+  border-radius: 24px;
+  animation: fadeInUp 0.8s ease-out;
 }
 
-@keyframes logo-spin {
+.hero h1 {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.hero .tagline {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 30px;
+  padding: 0 15px;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.platform-note {
+  color: var(--accent-purple);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 600;
+  margin: 15px 0;
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+  margin: 30px 0;
+  padding: 0 15px;
+}
+
+.btn {
+  padding: 14px 32px;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-blue) 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(96, 122, 251, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(96, 122, 251, 0.4);
+}
+
+.btn-secondary {
+  background: var(--card-dark);
+  color: var(--text-primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+}
+
+.ios-note {
+  color: var(--text-secondary);
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  margin-top: 20px;
+  animation: fadeInUp 0.8s ease-out 0.7s both;
+}
+
+/* Mobile Info Banner */
+.mobile-info {
+  padding: 50px 20px;
+  background: rgba(96, 122, 251, 0.08);
+  border-top: 1px solid rgba(96, 122, 251, 0.3);
+  border-bottom: 1px solid rgba(96, 122, 251, 0.3);
+}
+
+.info-card {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.info-card h3 {
+  font-size: clamp(1.3rem, 4vw, 1.6rem);
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.info-card p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+}
+
+/* Features Section */
+.features {
+  padding: 80px 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.features h2 {
+  text-align: center;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 0 15px;
+}
+
+.feature-card {
+  background: var(--card-dark);
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(96, 122, 251, 0.2);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 25px rgba(96, 122, 251, 0.2);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* How It Works Section */
+.how-it-works {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.how-it-works h2 {
+  text-align: center;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  padding: 0 15px;
+}
+
+.step {
+  text-align: center;
+  padding: 20px;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 auto 20px;
+}
+
+.step h3 {
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.step p {
+  color: var(--text-secondary);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* Screenshots Section */
+.screenshots {
+  padding: 80px 20px;
+  background: rgba(26, 26, 26, 0.5);
+  text-align: center;
+}
+
+.screenshots h2 {
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.screenshot-placeholder {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  background: var(--card-dark);
+  border-radius: 16px;
+  border: 2px dashed var(--primary);
+  color: var(--text-secondary);
+}
+
+.screenshot-placeholder p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin: 10px 0;
+}
+
+/* Download Section */
+.download {
+  padding: 80px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.download h2 {
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  margin-bottom: 20px;
+}
+
+.download > p {
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  padding: 0 15px;
+}
+
+.version-badge {
+  display: inline-block;
+  background: var(--success);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.install-note {
+  margin-top: 25px;
+  color: var(--text-secondary);
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  padding: 0 15px;
+}
+
+/* FAQ Section */
+.faq {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(26, 26, 26, 0.3);
+}
+
+.faq h2 {
+  text-align: center;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  padding: 0 15px;
+}
+
+.faq-item {
+  background: var(--card-dark);
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
+}
+
+.faq-item h3 {
+  font-size: clamp(1.1rem, 3vw, 1.25rem);
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.faq-item p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* Footer */
+.footer {
+  padding: 50px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(96, 122, 251, 0.2);
+  color: var(--text-secondary);
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  padding: 0 15px;
+}
+
+.footer-links a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.footer-links a:hover {
+  color: var(--accent-purple);
+}
+
+.footer p {
+  margin: 10px 0;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+}
+
+/* Animations */
+@keyframes fadeInUp {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(30px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 15px 60px;
+    min-height: auto;
+  }
+
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin: 30px auto;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .features-grid,
+  .steps-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .screenshot-placeholder {
+    padding: 40px 20px;
   }
 }
 
-.card {
-  padding: 2em;
+@media (min-width: 769px) and (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .faq-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@media (min-width: 1025px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
