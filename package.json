@@ -1,8 +1,13 @@
 {
   "name": "sharestash-landing",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Landing page for ShareStash - Your Personal Content Library",
+  "keywords": ["sharestash", "content-library", "bookmark-manager", "android", "ios"],
+  "author": "shadowxdgamer",
+  "license": "MIT",
+  "homepage": "https://yourusername.github.io/sharestash-landing",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

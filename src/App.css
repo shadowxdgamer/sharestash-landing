@@ -489,3 +489,48 @@ body {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+/* Stats Badge */
+.stats-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--primary) 100%);
+  color: white;
+  padding: 10px 25px;
+  border-radius: 25px;
+  margin: 20px 0;
+  font-weight: 600;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+  box-shadow: 0 4px 15px rgba(190, 130, 244, 0.3);
+}
+
+/* Release Stats in Download Section */
+.release-stats {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.stat-item {
+  background: var(--card-dark);
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(96, 122, 251, 0.3);
+  color: var(--text-primary);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .release-stats {
+    flex-direction: column;
+    max-width: 300px;
+    margin: 20px auto;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+}
