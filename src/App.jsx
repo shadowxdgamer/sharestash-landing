@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { initGA, trackDownload, trackButtonClick, trackPageView } from './analytics';
+import { initGA, trackDownload, trackButtonClick, trackPageView, trackOutboundLink } from './analytics';
 import logo from './assets/sharestash-logo.png';
 
 function App() {
@@ -51,6 +51,7 @@ function App() {
 
   const handleGitHubClick = () => {
     trackButtonClick('View on GitHub');
+    trackOutboundLink(`https://github.com/${GITHUB_REPO}`, 'GitHub Repository');
   };
 
   return (
