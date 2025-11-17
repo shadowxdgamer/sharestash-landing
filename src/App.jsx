@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { initGA, trackDownload, trackButtonClick, trackPageView, trackOutboundLink } from './analytics';
+import { trackDownload, trackButtonClick, trackPageView, trackOutboundLink } from './analytics';
 import logo from './assets/sharestash-logo.png';
 
 function App() {
@@ -11,9 +11,8 @@ function App() {
   const GITHUB_REPO = 'shadowxdgamer/ShareStash';
 
   useEffect(() => {
-    // Initialize Google Analytics
-    initGA();
-    trackPageView('/');
+    // Track initial page view
+    trackPageView(window.location.pathname + window.location.search);
 
     // Fetch all releases to calculate total downloads
     fetch(`https://api.github.com/repos/${GITHUB_REPO}/releases`)
